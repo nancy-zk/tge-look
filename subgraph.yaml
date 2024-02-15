@@ -1,0 +1,26 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: TGEVestingContract
+    network: zksync-era
+    source:
+      address: "0x791D413897064c4e288a580362f374C243e56823"
+      abi: TGEVestingContract
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Claimed
+        - OwnershipTransferred
+      abis:
+        - name: TGEVestingContract
+          file: ./abis/TGEVestingContract.json
+      eventHandlers:
+        - event: Claimed(address,uint256)
+          handler: handleClaimed
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+      file: ./src/tge-vesting-contract.ts

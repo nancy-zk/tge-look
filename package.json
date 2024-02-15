@@ -1,0 +1,16 @@
+{
+  "name": "tge-look",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ tge-look",
+    "create-local": "graph create --node http://localhost:8020/ tge-look",
+    "remove-local": "graph remove --node http://localhost:8020/ tge-look",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 tge-look"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.68.0",
+    "@graphprotocol/graph-ts": "0.32.0"
+  }
+}
